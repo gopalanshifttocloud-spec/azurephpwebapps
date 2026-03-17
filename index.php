@@ -20,6 +20,8 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
 $sql = "SELECT * FROM emp";
 $stmt = sqlsrv_query($conn, $sql);
 
+var_dump($stmt);
+
 if ($stmt === false) {
     exit(print_r(sqlsrv_errors(), true));
 }
@@ -28,6 +30,7 @@ if ($stmt === false) {
 while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
     print_r($row);
 }
+
 
 var_dump($conn);
 ?>
