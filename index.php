@@ -14,4 +14,6 @@ catch (PDOException $e) {
 $connectionInfo = array("UID" => "CloudSAcb231d5e", "pwd" => "admin@123456", "Database" => "free-sql-db-9705890", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
 $serverName = "tcp:azuresqlserversigsync.database.windows.net,1433";
 $conn = sqlsrv_connect($serverName, $connectionInfo);
+
+var_dump($conn);
 ?>
