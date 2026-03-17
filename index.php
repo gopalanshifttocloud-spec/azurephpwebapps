@@ -2,8 +2,8 @@ test index php files
 <?php
 $serverName = "tcp:azuresqlserversigsync.database.windows.net,1433";
 $database = "free-sql-db-9705890";
-$username = "adminuser";          // Server admin login
-$password = "admin@123456"; // Reset password
+$username = "<your_server_admin>";
+$password = "<your_new_password>";
 
 try {
     $conn = new PDO("sqlsrv:server=$serverName;Database=$database", $username, $password);
