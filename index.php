@@ -15,5 +15,19 @@ $connectionInfo = array("UID" => "CloudSAcb231d5e", "pwd" => "admin@123456", "Da
 $serverName = "tcp:azuresqlserversigsync.database.windows.net,1433";
 $conn = sqlsrv_connect($serverName, $connectionInfo);
 
+
+// Execute a query
+$sql = "SELECT * FROM emp";
+$stmt = sqlsrv_query($conn, $sql);
+
+if ($stmt === false) {
+    exit(print_r(sqlsrv_errors(), true));
+}
+
+// Fetch results
+while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+    print_r($row);
+}
+
 var_dump($conn);
 ?>
