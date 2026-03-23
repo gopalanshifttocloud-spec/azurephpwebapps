@@ -29,6 +29,8 @@ try {
     exit("Connection failed: " . $e->getMessage());
 }
 
+echo phpinfo();
+
 ?>
 
 
