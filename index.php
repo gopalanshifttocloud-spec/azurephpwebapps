@@ -4,7 +4,7 @@ test index php files
 
 $host = "azuremysqldatabase-1.mysql.database.azure.com";
 $dbname = "azuretestdb";
-$username = "azureuser123@azuremysqldatabase-1";
+$username = "azureuser123";
 $password = "Test@1234";
 
 try {
