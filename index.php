@@ -1,5 +1,31 @@
 test index php files
+
 <?php
+
+$host = "azuremysqldatabase-1.mysql.database.azure.com";
+$dbname = "azuretestdb";
+$username = "azureuser123@azuremysqldatabase-1";
+$password = "Test@1234";
+
+try {
+    $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
+
+    $pdo = new PDO($dsn, $username, $password, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_TIMEOUT => 5,
+    ]);
+
+    echo "Connected successfully!";
+} catch (PDOException $e) {
+    exit("Connection failed: " . $e->getMessage());
+}
+
+?>
+
+
+
+<?php
+/*
 // PHP Data Objects(PDO) Sample Code:
 try {
     $conn = new PDO("sqlsrv:server = tcp:azuresqlserversigsync.database.windows.net,1433; Database = free-sql-db-9705890", "CloudSAcb231d5e", "admin@123456");
@@ -33,4 +59,5 @@ while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
 
 
 var_dump($conn);
+*/
 ?>
