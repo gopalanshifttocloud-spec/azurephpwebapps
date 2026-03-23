@@ -25,26 +25,34 @@ try {
 
     echo "Connected successfully!";
 	
-	
-	
 	// SELECT query
     $stmt = $pdo->query("SELECT * FROM emp");
-
-    // Fetch data
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        echo "ID: " . $row['emp_id'] . " - Name: " . $row['first_name'] . "<br>";
-    }
+	?>
+	<table>
+		<tr>
+			<th>emp_id</th>
+			<th>First NName</th>
+			<th>Last Name</th>
+			<th>Email</th>
+			<th>Phone No.</th>
+		</tr>
+		<?php  while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
+		<tr>
+			<td><?php echo  $row['emp_id']; ?></td>
+			<td><?php echo  $row['first_name']; ?></td>
+			<td><?php echo  $row['last_name']; ?></td>
+			<td><?php echo  $row['email']; ?></td>
+			<td><?php echo  $row['phone']; ?></td>
+		</tr>
+		<?php } ?>
+	<table>
+	<?php
 	
 } catch (PDOException $e) {
     exit("Connection failed: " . $e->getMessage());
 }
 
-
-
 ?>
-
-
-
 <?php
 /*
 // PHP Data Objects(PDO) Sample Code:
