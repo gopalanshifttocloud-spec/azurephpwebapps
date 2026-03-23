@@ -10,6 +10,8 @@ $password = "Test@1234";
 $ssl_ca = "BaltimoreCyberTrustRoot.crt.pem";
 
 
+echo phpinfo();
+
 try {
     $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
 	
@@ -29,7 +31,7 @@ try {
     exit("Connection failed: " . $e->getMessage());
 }
 
-echo phpinfo();
+
 
 ?>
 
