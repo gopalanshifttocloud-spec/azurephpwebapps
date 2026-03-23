@@ -23,11 +23,39 @@ try {
         PDO::ATTR_TIMEOUT => 5,
     ]);
 
+	extract($_POST);
+	
+	$first_name = ($_POST['first_name'])?? '';
+	$last_name = ($_POST['last_name'])?? '';
+	$email = ($_POST['email'])?? '';
+	$phone = ($_POST['phone'])?? '';
+	
+	if($first_name != '' && $last_name != '' && $email != '' && $phone != ''){
+		$stmt = $pdo->query("INSERT INTO emp(first_name,last_name,email,phone) VALUES('".$first_name."','".$last_name."','".$email."','".$phone."') ");
+		echo "Data Inserted successfully";
+	}
+
     echo "Connected successfully!";
 	
 	// SELECT query
     $stmt = $pdo->query("SELECT * FROM emp");
 	?>
+	<br/>
+	User Data	
+	<form action="" method="post">
+		<table>
+			<tr>
+				<th>First Name:</th> <th><input type="text" name="first_name" value="" required /></th>
+			</tr>
+			<tr>
+				<th>Last Name:</th> <th><input type="text" name="last_name" value="" required /></th>
+			</tr>
+			<tr><th>Email Address:</th> <th><input type="email" name="email" value="" required /></th></tr>
+			<tr><th>phone:</th> <th><input type="text" name="phone" value="" required/></th></tr>	
+			<tr><th><input type="submit" value="Save Data" /></th></tr>
+		</table>
+	</form>
+	<br/>
 	<table>
 		<tr>
 			<th>emp_id</th>
