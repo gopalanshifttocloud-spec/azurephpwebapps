@@ -9,9 +9,6 @@ $password = "Test@1234";
 
 $ssl_ca = "BaltimoreCyberTrustRoot.crt.pem";
 
-
-echo phpinfo();
-
 try {
     $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
 	
@@ -27,6 +24,17 @@ try {
     ]);
 
     echo "Connected successfully!";
+	
+	
+	
+	// SELECT query
+    $stmt = $conn->query("SELECT * FROM emp");
+
+    // Fetch data
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        echo "ID: " . $row['emp_id'] . " - Name: " . $row['first_name'] . "<br>";
+    }
+	
 } catch (PDOException $e) {
     exit("Connection failed: " . $e->getMessage());
 }
