@@ -28,7 +28,7 @@ try {
 	
 	
 	// SELECT query
-    $stmt = $conn->query("SELECT * FROM emp");
+    $stmt = $pdo->query("SELECT * FROM emp");
 
     // Fetch data
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
